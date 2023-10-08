@@ -2,9 +2,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.ContextModels
 {
-  public class Salary : BaseModel
+  public class AdministrativeCost : BaseModel
   {
-    public string Employee { get; set; }
     public string Description { get; set; }
     public int Cost { get; set; }
     public DateTime PaymentDate { get; set; }

@@ -11,7 +11,14 @@ builder.Services.AddApplicationServices();
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+    {
+      options.SignIn.RequireConfirmedAccount = false;
+      options.Password.RequireUppercase = false;
+      options.Password.RequiredLength = 8;
+      options.Password.RequireNonAlphanumeric = false;
+      options.Password.RequireDigit = false;
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
